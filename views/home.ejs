@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+    <title>Node Authentication</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+    <style>
+        body{ padding-top:80px; }
+    </style>
+</head>
+<body>
+<div class="container">
+
+<div class="row">
+   <div class='col-sm-6 col-md-4 col-md-offset-4'> 
+        <div class="well">
+        <!--<div id='user'>-->
+         <h3><span class="fa fa-user"></span> Local</h3>
+            <ul>
+                <li><strong>Username:</strong> <%= user.username%></li>
+                <li><strong>Email:</strong> <%= user.email%><br></li>
+                <li><strong>Firstname:</strong> <%= user.firstName%><br></li>
+                <li><strong>Lastname:</strong> <%= user.lastName%><br></li>
+            </ul>
+       </div>
+   </div>
+
+   <!-- FACEBOOK INFORMATION -->
+    <div class="col-sm-6 col-md-4 col-md-offset-4">
+        <div class="well">
+            <h3 class="text-primary"><span class="fa fa-facebook"></span> Facebook</h3>
+
+            <!-- check if the user has this token (is the user authenticated with this social account) -->
+            <% if (user.fb.access_token) { %>
+                <p>
+                    <strong>id:</strong> <%= user.fb.id %><br>
+                    <strong>token:</strong> <%= user.fb.access_token %><br>
+                    <strong>name:</strong> <%= user.fb.displayName %><br>
+                </p>
+                <a href="/unlink/facebook" class="btn btn-primary">Unlink</a>
+            <% } else { %>
+                <a href="/login/facebook" class="btn btn-primary">Connect Facebook</a>
+            <% } %>
+        </div>
+    </div>
+</div>
+    <hr>
+    <p>Need an account? <a href="/signup">Signup</a></p>
+    <p>Or go <a href="/signout">signout</a>.</p>
+
+
+</div>
+</body>
+</html>
+
