@@ -4,12 +4,14 @@ boilerplate for login. Allows passport to do the heavy lifting.
 CORE LIBRARY:
 - passportjs
 - express 4
+- ejs template engine
 
 CORE CONCEPTS:
 - authentication, link diff authentication together.
 - EXPOSES express req.user because of passport.
 - configure Facebook Developer Portal.
-- set up local environment.
+- set up local environment to accomodate the concept(eg. save to database, set up correct routes that mimic an actual application.
+- EJS: make sure variables in view are sent from routes; otherwise view will not render.
 
 ALERT:
 - express
